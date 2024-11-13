@@ -4,62 +4,49 @@
     <img src="./public/img/result.png" alt="Hello from go">
 </p>
 
-Aplicacion web que despliega un servidor web y levanta una simple API con una ruta que muestra el mensaje **¡hello world with go!**
+Web application that deploys a web server and builds a simple API with a route that displays the message **hello world with go!**
 
 ## :open_book: How to use
 ### Pre-requisites
-   * lenguaje go
-   * editor de codigo
+* go language
+* code editor
 ---
 
 * Clone the repository
     ```
-    git clone https://github.com/Pablo-man/java_docker_project.git
+    git clone https://github.com/Pablo-man/go_docker_project.git
     ```
-* Abre el programa con el editor de codigo de tu preferencia
-* Abre una terminal que apunte a la raiz del proyecto
-* Ejecuta el comando:
+* Open the program with the code editor of your choice
+* Open a terminal that points to the root of the project
+* Run the command:
 
     `go run main.go`
-* Visita tu `localhost:8080` para visualizar los resultados
+* Visit your `localhost:8080` to view the results
 
     > [!TIP]
-    > Por defecto la aplicacion se desplegara en el puerto `8080`, si es necesario cambiarlo a otro debe modificarlo desde el archivo `main.go` y en el apartado `http.ListenAndServe(":<PORTNUMBER>", nil)` colocar el puerto deseado
+    > By default the application will be deployed on port `8080`, if it is necessary to change it to another one you must modify it from the `main.go` file and in the `http.ListenAndServe(":<PORTNUMBER>", nil)` section place the desired port
 
 ## :rocket: How to run with docker
-Visitar el siguiente enlance para conocer el proceso de generacion de la imagen del proyecto
+### Pre-requisites
+* Docker - DockerDesktop installed
+* DockerHub account
+---
+Visit the following link to learn about the process of generating the project image
 
-### Como crear la imagen
-```html
-docker build -t <NEWIMAGENAME> .
-<!-- Example -->
-<!-- docker build -t gohello . -->
-```
-### Como ejecutar la imagen (Contenedor)
-* Descargar del repositorio remoto la imagen
+:whale2: [GO](https://hub.docker.com/repository/docker/pamendeza/go_docker_project "Docker steps")
 
-    `docker pull pamendeza/go_docker_project `
-* Crear el contenedor a partir de la imagen
-    ```html
-    docker run -d --name <NEWDOCKERNAME> -p <PORT>:8080 <IMAGENAME>
+## :light_rail: PAAS Deploy(Railway)
+For its deployment in a PAAS we will rely on railway and its easy implementation thanks to its container management. 
 
-    <!-- Example -->
-    <!-- docker run -d --name gohello -p 3000:8080 pamendeza/go_docker_project:v1.0 -->
-    ```
-    > [!TIP]
-    > Si se desea mapear a un puerto diferente la aplicacion, unicamente se debe cambiar el numero de puerto que se encuentra a la izquierda debido a que el de la derecha es propio del contenedor y no se puede modificar.
-### Como subir al repositorio remoto la imagen
-* Colocar un tag a la imagen, en la cual se especifica el nombre o id de la imagen que deseamos subir seguido de el nombre de usuario de dockerhub, nombre del repositorio y version de la imagen
-    ```html
-    docker tag <IMAGENAME>||<IDIMAGE> <USERNAME>/<REPOSITORIENAME>:<VERSION>
-    <!-- Example -->
-    <!-- docker tag gohello pamendeza/go_docker_project:v1.0 -->
-    ```
-* Subir la imagen tageada la cual consiste del nombre de usuario de dockerhub, el nombre del repositorio y la version de la imagen. Hacia el repositorio remoto
-    ```html
-    docker push  <USERNAME>/<REPOSITORIENAME>:<VERSION>
-    <!-- Example -->
-    <!-- docker push pamendeza/go_docker_project:v1.0 -->
-    ```
-    [View results](#results)
-## :light_rail: PAAS Deploy (Railway)
+![Railway Service](./public/img/railwayDeploy.png "Service")
+
+The platform automatically uses our Dockerfile to build the container. 
+
+![Build Container](./public/img/dockerFile.png "Build Configuration")
+
+> [!IMPORTANT]
+> Next, the configuration that we must add is the generation of a domain along with the desired port, in this case the indicated thing would be to point to port 80 on which nginx is working
+
+![Generate Domain](./public/img/domain.png "Domain")
+
+[Hello World](https://jsproyectdocker-production.up.railway.app "click for visit")
