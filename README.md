@@ -41,6 +41,7 @@ Type of deployment was:
 ![Render Service](./public/img/type.png "Service")
 
 Configurations:
+* Build and start commmands to compile and execute the web application on render.
 
 ![Render Config](./public/img/conf.png "Configuration")
 
