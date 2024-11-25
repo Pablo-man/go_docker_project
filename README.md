@@ -35,18 +35,23 @@ Visit the following link to learn about the process of generating the project im
 
 :whale2: [GO](https://hub.docker.com/repository/docker/pamendeza/go_docker_project "Docker steps")
 
-## :light_rail: PAAS Deploy(Railway)
-For its deployment in a PAAS we will rely on railway and its easy implementation thanks to its container management. 
+## :tennis: PAAS Deploy(Render) without Docker
+Type of deployment was:
 
-![Railway Service](./public/img/railwayDeploy.png "Service")
+![Render Service](./public/img/type.png "Service")
 
-The platform automatically uses our Dockerfile to build the container. 
+Configurations:
 
-![Build Container](./public/img/dockerFile.png "Build Configuration")
+![Render Config](./public/img/conf.png "Configuration")
 
-> [!IMPORTANT]
-> Next, the configuration that we must add is the generation of a domain along with the desired port, in this case the indicated thing would be to point to port 80 on which nginx is working
+![Render Config](./public/img/conf1.png "Configuration")
 
-![Generate Domain](./public/img/domain.png "Domain")
 
-:mouse:[Hello World](https://godockerproject-production.up.railway.app "click for visit")
+State:
+
+![Render Service](./public/img/renderDeploy1.png "Service")
+
+![Render Service](./public/img/renderDeploy.png "Service")
+
+
+:cake:[Hello World](https://go-docker-project.onrender.com/ "click for visit")
